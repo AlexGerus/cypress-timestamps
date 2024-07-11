@@ -16,30 +16,38 @@ $ yarn add -D cypress-timestamps-lts
 
 Include the plugin from your support file
 
-```js
-// cypress/support/index.js
+```ts
+// cypress/support/e2e.ts
 
 // https://github.com/AlexGerus/cypress-timestamps
-require('cypress-timestamps-lts/support')()
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+require('cypress-timestamps-lts/support')();
 ```
 
 Include this plugin from your project's plugin file. This is optional and is needed only if you enable the option `terminal: true` (see below)
 
-```js
-// cypress/plugin/index.js
+```ts
+// cypress.config.ts
 
-module.exports = (on, config) => {
-  // https://github.com/AlexGerus/cypress-timestamps
-  require('cypress-timestamps-lts/plugin')(on)
-}
+import { defineConfig } from 'cypress';
+
+export default defineConfig({
+  e2e: {
+    setupNodeEvents(on, config) {
+      require('cypress-timestamps-lts/plugin')(on);
+      return config;
+    },
+    baseUrl: 'http://localhost:3000',
+  },
+});
 ```
 
 ## Options
 
 By default, this plugin adds the timestamps to the error message if a test fails, and to the parent commands in the Command Log. You can also enable printing the test start and end timestamps in the terminal by registering the plugin (see above) and enabling the option when registering the support file.
 
-```js
-// cypress/support/index.js
+```ts
+// cypress/support/e2e.ts
 
 // https://github.com/AlexGerus/cypress-timestamps
 require('cypress-timestamps-lts/support')({
@@ -71,7 +79,9 @@ Adds timestamps before each parent command that starts a new chain of commands
 
 When printing the timestamps to the command log, you can print either the absolute timestamp (by default), or the time since the test has started.
 
-```js
+```ts
+// cypress/support/e2e.ts
+
 // https://github.com/AlexGerus/cypress-timestamps
 require('cypress-timestamps-lts/support')({
   commandLog: true,
@@ -85,7 +95,9 @@ require('cypress-timestamps-lts/support')({
 
 By default, only the parent and dual commands get a timestamp in the Command Log to avoid verbose clutter. You can enable stamping every command using the `commandLog: "all"` option.
 
-```js
+```ts
+// cypress/support/e2e.ts
+
 // https://github.com/AlexGerus/cypress-timestamps
 require('cypress-timestamps-lts/support')({
   commandLog: 'all',
