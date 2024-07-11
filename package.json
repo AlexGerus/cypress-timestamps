@@ -1,6 +1,6 @@
 {
   "name": "cypress-timestamps-lts",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Add timestamps to Cypress tests, error screenshots, and Command Log",
   "files": [
     "support.js",
