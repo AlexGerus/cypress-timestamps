@@ -86,7 +86,7 @@ require('cypress-timestamps/support')({
 By default, only the parent and dual commands get a timestamp in the Command Log to avoid verbose clutter. You can enable stamping every command using the `commandLog: "all"` option.
 
 ```js
-// https://github.com/bahmutov/cypress-timestamps
+// https://github.com/AlexGerus/cypress-timestamps
 require('cypress-timestamps/support')({
   commandLog: 'all',
   elapsed: true,
@@ -111,11 +111,11 @@ Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2021
 License: MIT - do anything with the code, but don't blame me if it does not work.
 
 Support: if you find any problems with this module, email / tweet /
-[open issue](https://github.com/bahmutov/cypress-timestamps/issues) on Github
+[open issue](https://github.com/AlexGerus/cypress-timestamps/issues) on Github
 
 ## MIT License
 
-Copyright (c) 2021 Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt;
+Copyright (c) 2024 Alex Gerus &lt;gerus.javawork@gmail.com&gt;
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
