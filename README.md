@@ -1,4 +1,4 @@
-# cypress-timestamps ![cypress version](https://img.shields.io/badge/cypress-9.7.0-brightgreen)
+# cypress-timestamps-lts ![cypress version](https://img.shields.io/badge/cypress-13.13.0-brightgreen)
 
 > Add timestamps to Cypress tests, error screenshots, and Command Log
 
@@ -7,9 +7,9 @@ Read the blog post [Add Timestamps To Cypress](https://glebbahmutov.com/blog/cyp
 ## Install
 
 ```shell
-$ npm i -D cypress-timestamps
+$ npm i -D cypress-timestamps-lts
 # or if using Yarn
-$ yarn add -D cypress-timestamps
+$ yarn add -D cypress-timestamps-lts
 ```
 
 ## Use
@@ -19,8 +19,8 @@ Include the plugin from your support file
 ```js
 // cypress/support/index.js
 
-// https://github.com/bahmutov/cypress-timestamps
-require('cypress-timestamps/support')()
+// https://github.com/AlexGerus/cypress-timestamps
+require('cypress-timestamps-lts/support')()
 ```
 
 Include this plugin from your project's plugin file. This is optional and is needed only if you enable the option `terminal: true` (see below)
@@ -29,8 +29,8 @@ Include this plugin from your project's plugin file. This is optional and is nee
 // cypress/plugin/index.js
 
 module.exports = (on, config) => {
-  // https://github.com/bahmutov/cypress-timestamps
-  require('cypress-timestamps/plugin')(on)
+  // https://github.com/AlexGerus/cypress-timestamps
+  require('cypress-timestamps-lts/plugin')(on)
 }
 ```
 
@@ -41,8 +41,8 @@ By default, this plugin adds the timestamps to the error message if a test fails
 ```js
 // cypress/support/index.js
 
-// https://github.com/bahmutov/cypress-timestamps
-require('cypress-timestamps/support')({
+// https://github.com/AlexGerus/cypress-timestamps
+require('cypress-timestamps-lts/support')({
   terminal: true,
   error: true,
   commandLog: true,
@@ -72,8 +72,8 @@ Adds timestamps before each parent command that starts a new chain of commands
 When printing the timestamps to the command log, you can print either the absolute timestamp (by default), or the time since the test has started.
 
 ```js
-// https://github.com/bahmutov/cypress-timestamps
-require('cypress-timestamps/support')({
+// https://github.com/AlexGerus/cypress-timestamps
+require('cypress-timestamps-lts/support')({
   commandLog: true,
   elapsed: true,
 })
@@ -87,7 +87,7 @@ By default, only the parent and dual commands get a timestamp in the Command Log
 
 ```js
 // https://github.com/AlexGerus/cypress-timestamps
-require('cypress-timestamps/support')({
+require('cypress-timestamps-lts/support')({
   commandLog: 'all',
   elapsed: true,
 })
@@ -96,22 +96,6 @@ require('cypress-timestamps/support')({
 ![Elapsed time for every command](./images/all.png)
 
 **Tip:** looking to slow down your Cypress tests? Use my [cypress-slow-down](https://github.com/bahmutov/cypress-slow-down) plugin.
-
-## Small print
-
-Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2021
-
-- [@bahmutov](https://twitter.com/bahmutov)
-- [glebbahmutov.com](https://glebbahmutov.com)
-- [blog](https://glebbahmutov.com/blog)
-- [videos](https://www.youtube.com/glebbahmutov)
-- [presentations](https://slides.com/bahmutov)
-- [cypress.tips](https://cypress.tips)
-
-License: MIT - do anything with the code, but don't blame me if it does not work.
-
-Support: if you find any problems with this module, email / tweet /
-[open issue](https://github.com/AlexGerus/cypress-timestamps/issues) on Github
 
 ## MIT License
 
